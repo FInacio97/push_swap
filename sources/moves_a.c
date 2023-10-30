@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:12:14 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/22 23:17:02 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:19:53 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	move_sa(t_data *data)
 		temp->next->prev = data->s_a_head;
 	temp->next = data->s_a_head;
 	data->s_a_head = temp;
+	move_to_list(data, "sa");
 }
 
 void	move_pa(t_data *data)
@@ -56,6 +57,7 @@ void	move_pa(t_data *data)
 		data->s_b_nbr--;
 		data->s_a_nbr++;
 	}
+	move_to_list(data, "pa");
 }
 
 void	move_ra(t_data *data)
@@ -72,6 +74,7 @@ void	move_ra(t_data *data)
 		temp->next = NULL;
 		data->s_a_tail = temp;
 	}
+	move_to_list(data, "ra");
 }
 
 void	move_rra(t_data *data)
@@ -88,4 +91,5 @@ void	move_rra(t_data *data)
 		data->s_a_head->prev = temp;
 		data->s_a_head = temp;
 	}
+	move_to_list(data, "rra");
 }

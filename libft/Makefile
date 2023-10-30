@@ -12,7 +12,7 @@ ft_param.c	ft_adress.c	ft_printf.c	ft_putchar.c	ft_putnbr.c\
 ft_putnbrhexa.c	ft_putstr.c	ft_putunsigned.c\
 get_next_line.c	get_next_line_bonus.c	get_next_line_utils.c	get_next_line_utils_bonus.c\
 str_finder.c	matrix_finder.c	coordinate_finder.c	matrix_sizer.c	matrix_printer.c\
-matrix_dup.c	matrix_deleter.c	ft_strjoin_free.c
+matrix_dup.c	matrix_deleter.c	ft_strjoin_free.c	ft_intcmp.c
 
 
 OBJS :=$(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:50:57 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/23 17:24:24 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/10/30 18:40:15 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		order_check(t_data *data)
 
 	i = 0;
 	current = data->s_a_head;
-	while (current)
+	while (current->next)
 	{
-		if (current->index != i)
+		if (current->val >= current->next->val)
 			return (1);
 		current = current->next;
 		i++;
@@ -59,31 +59,58 @@ void	rater(t_data *data)
 void	get_shorts(t_data *data, int sl1, int sl2)
 {
 	int i;
-	t_value *current;
+	t_value *cur;
 
 	i = -1;
-	current = data->s_a_head;
-	ft_printf("sl1: %d	sl2: %d\n", sl1, sl2);
-	while(current && ++i >= 0)
+	cur = data->s_a_head;
+	while(cur && ++i >= 0)
 	{
-		if (current->slice == sl1 || current->slice == sl2)
+		if (cur->slice == sl1 || cur->slice == sl2)
 		{
 			data->short_head = i;
 			break ;
 		}	
-		current = current->next;
+		cur = cur->next;
 	}
 	i = 0;
-	current = data->s_a_tail;
-	while(current && ++i >= 0)
+	cur = data->s_a_tail;
+	while(cur && ++i >= 0)
 	{
-		if (current->slice == sl1 || current->slice == sl2)
+		if (cur->slice == sl1 || cur->slice == sl2)
 		{
 			data->short_tail = i;
 			break ;
 		}
 		i++;
-		current = current->prev;
+		cur = cur->prev;
 	}
 }
 
+void	get_relative_shorts(t_data *data, int sl1, int sl2, int sl3)
+{
+	int i;
+	t_value *c;
+
+	i = -1;
+	c = data->s_a_head;
+	while(c && ++i >= 0)
+	{
+		if (c->slice_rel == sl1 || c->slice_rel == sl2 || c->slice_rel == sl3)
+		{
+			data->short_head = i;
+			break ;
+		}	
+		c = c->next;
+	}
+	i = 0;
+	c = data->s_a_tail;
+	while(c && ++i >= 0)
+	{
+		if (c->slice_rel == sl1 || c->slice_rel == sl2 || c->slice_rel == sl3)
+		{
+			data->short_tail = i;
+			break ;
+		}
+		c = c->prev;
+	}
+}

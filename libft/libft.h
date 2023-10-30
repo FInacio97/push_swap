@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:28:53 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/09/25 02:34:06 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:10:29 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void	matrix_printer(char **mtx);
 char	**matrix_dup(char **mtx);
 void	matrix_deleter(char **mtx);
 char	*ft_strjoin_free(char const *s1, char const *s2, int tofree);
+int		ft_intcmp(int n1, int n2);
 
 #endif

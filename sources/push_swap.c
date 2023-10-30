@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:20:00 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/23 17:08:46 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:35:06 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,40 @@ int main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		data.s_a_head = NULL;
+		data.moves_flag = 0;
+		data.s_a_head = NULL;// not sure if all this is necessary...
 		data.s_a_tail = NULL;
 		data.s_b_head = NULL;
-		data.s_b_tail = NULL;
+		data.s_b_tail = NULL;//to here...
+		data.m_l_head = NULL;
+		data.m_l_tail = NULL;
+		data.flag = 0;// try to do it without this variable, using the NULLs above
+			
 		ft_parsing(av, &data);
 		
-		get_shorts(&data, 1, -1);
-		ft_printf("short head: %d\nshort tail: %d\n", data.short_head, data.short_tail);
-		// ft_printf("Posição do 3: %d\n", get_index(data.s_a_head, 3));
-		// sort_4(&data);
-		// ft_printf("moves to slice 1: %d\n", get_short_slice_tail(data.s_a_tail, 1, -1));
+		if (ac == 3)
+			sort_2(&data);
+		else if (ac == 4)
+			sort_3(&data);
+		else if (ac == 5)
+			sort_4(&data);
+		else if (ac == 6)
+			sort_5(&data);
+		else if (ac == 7)
+			sort_6(&data);
+		else if (ac == 8)
+			sort_7(&data);
+
+		ft_printf("\n\n===SORTED===\n");
+
+
 		print_list(data.s_a_head);
+		print_moves(data.m_l_head);
+		list_moves_deleter(data.m_l_head);
+		if (order_check(&data) == 0)
+			ft_printf("OK\n");
+		else
+			ft_printf("||ERROR||\nWrong order!!\n");
 
 		to_exit(&data, "Program terminated with success!\n");
 	}
