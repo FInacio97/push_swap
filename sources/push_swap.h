@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/27 12:38:55 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:09:34 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_value
 typedef struct s_moves
 {
 	char			*move;
+	char			*list;
 	struct s_moves	*next;
 	struct s_moves	*prev;
 }				t_moves;
@@ -47,7 +48,7 @@ typedef struct s_data
 	int		short_tail;
 	int		rate;
 	int		moves_flag;
-	int		flag;// I DONT REMEMBER WHAT THIS DOES
+	int		moves_nbr;
 }				t_data;
 
 /*PARSING*/
@@ -89,22 +90,24 @@ void	relative_slicer(t_data *data);
 void	relative_slicer_helper(t_value *node);
 void	relative_slicer_s5(t_data *data);
 void	rotate_to_short(t_data *data);
-t_moves	*new_moves_list(char *s);
-void	move_to_list(t_data *data, char *s);
+t_moves	*new_moves_list(char *move, char *list);
+void	move_to_list(t_data *data, char *move, char *list);
 void	print_moves(t_moves *head);
+void	moves_node_deleter(t_moves *node);
 void	list_moves_deleter(t_moves *node);
 void	print_moves_reverse(t_moves *head);// 	ONLY FOR TESTING
-
+void	optimizer(t_data *data);//	atill to test fully
 
 /*SORT 2*/
 void	sort_2(t_data *data);
 void	sort_3(t_data *data);
-void	sort_4(t_data *data);
+void	sort_4_helper(t_data *data, int *swap_check);
+void	sort_4(t_data *data, int swap_check);
 void	sort_5(t_data *data);
 
 /*SORT 6*/
-void	sort_6(t_data *data);
-void	sort_7(t_data *data);
+void	sort_to_10_helper(t_data *data);
+void	sort_to_10(t_data *data);
 
 
 #endif

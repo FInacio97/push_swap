@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:35:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/30 18:41:48 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:52:32 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,29 +92,31 @@ void	rotate_to_short(t_data *data)
 		while (data->short_tail--)
 			move_rra(data);
 	}
+	move_pb(data);
 }
 
-t_moves	*new_moves_list(char *s)
+t_moves	*new_moves_list(char *move, char *list)
 {
 	t_moves *node;
 
 	node = (t_moves *)malloc(sizeof(t_moves));
 	if (!node)
 		return (NULL);
-	node->move = ft_strdup(s);
+	node->move = ft_strdup(move);
+	node->list = ft_strdup(list);
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
 }
 
-void	move_to_list(t_data *data, char *s)
+void	move_to_list(t_data *data, char *move, char *list)
 {
 	t_moves *temp;
 
-	ft_printf("\n\n==MOVE==\n");
-	ft_print_both_lists(data);
 	temp = data->m_l_tail;
-	data->m_l_tail = new_moves_list(s);
+	data->m_l_tail = new_moves_list(move, list);
+	data->moves_nbr++;
+	ft_printf("moves: %d\n", data->moves_nbr);
 	if (data->moves_flag == 0)
 	{
 		data->moves_flag = 1;
@@ -123,6 +125,8 @@ void	move_to_list(t_data *data, char *s)
 	}
 	data->m_l_tail->prev = temp;
 	temp->next = data->m_l_tail;
+	if (data->moves_nbr > 1)
+		optimizer(data);
 }
 
 void	print_moves(t_moves *head)
@@ -132,7 +136,7 @@ void	print_moves(t_moves *head)
 	current = head;
 	while (current)
 	{
-		ft_printf("%s\n", current->move);
+		ft_printf("%s%s\n", current->move, current->list);
 		current = current->next;
 	}
 }
@@ -155,6 +159,13 @@ void	print_moves_reverse(t_moves *head)// 	ONLY FOR TESTING
 		ft_printf("NULL\n");
 }
 
+void	moves_node_deleter(t_moves *node)
+{
+	free (node->move);
+	free (node->list);
+	free (node);
+}
+
 void	list_moves_deleter(t_moves *node)
 {
 	t_moves	*temp;
@@ -162,8 +173,50 @@ void	list_moves_deleter(t_moves *node)
 	while (node)
 	{
 		temp = node->next;
-		free (node->move);
-		free (node);
+		moves_node_deleter(node);
 		node = temp;
 	}
 }
+
+void	optimizer_helper(t_data *data)
+{
+	t_moves *node;
+
+	if (data->moves_nbr == 1)
+	{
+		moves_node_deleter(data->m_l_tail);
+	data->m_l_tail = NULL;
+		data->moves_nbr--;
+		data->moves_flag = 0;
+		return ;
+	}
+	node = data->m_l_tail;
+	data->m_l_tail = node->prev;
+	data->m_l_tail->next = NULL;
+	moves_node_deleter(node);
+	data->moves_nbr--;
+}
+
+void	optimizer(t_data *data)
+{
+	t_moves *node;
+
+	node = data->m_l_tail;
+	if (ft_strncmp(node->prev->move, node->move, 2) == 0
+		&& ft_strncmp(node->prev->list, node->list, 1)	!= 0
+		&& str_finder(node->prev->list,"ab") == 1)
+	{
+		node->prev->list[0] = node->prev->move[0];
+		node->prev->next = NULL;
+		data->m_l_tail = node->prev;
+		moves_node_deleter(node);
+		data->moves_nbr--;
+		if (data->m_l_tail->list[0] == 'p')
+			optimizer_helper(data);
+	}
+}
+
+/*
+	tail -> sa
+	ra <- sa -> NULL	
+*/
