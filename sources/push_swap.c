@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:20:00 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 11:09:58 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:49:31 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,9 @@ int main(int ac, char **av)
 		data.s_b_tail = NULL;//to here...
 		data.m_l_head = NULL;
 		data.m_l_tail = NULL;
-			
+	
 		ft_parsing(av, &data);
 		
-		// relative_slicer(&data);
-		// move_to_list(&data, "p", "b");
-		// move_to_list(&data, "p", "a");
-		// move_to_list(&data, "p", "b");
-		// move_to_list(&data, "p", "a");
-		// move_to_list(&data, "p", "b");
-		// ft_printf("aqui\n");
-
-
 		if (ac == 3)
 			sort_2(&data);
 		else if (ac == 4)

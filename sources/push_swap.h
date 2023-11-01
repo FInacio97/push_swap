@@ -6,20 +6,20 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 11:27:25 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:43:04 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_value
 {
-	struct s_value *next;
-	struct s_value *prev;	
-	int 			val;
+	struct s_value	*next;
+	struct s_value	*prev;	
+	int				val;
 	int				index;
 	int				slice;
 	int				slice_rel;
@@ -33,15 +33,14 @@ typedef struct s_moves
 	struct s_moves	*prev;
 }				t_moves;
 
-
 typedef struct s_data
 {
 	t_value	*s_a_head;
 	t_value	*s_b_head;
 	t_value	*s_a_tail;
 	t_value	*s_b_tail;
-	t_moves *m_l_head;
-	t_moves *m_l_tail;
+	t_moves	*m_l_head;
+	t_moves	*m_l_tail;
 	int		s_a_nbr;
 	int		s_b_nbr;
 	int		short_head;
@@ -64,13 +63,13 @@ void	ft_parsing(char **av, t_data *data);
 void	move_sa(t_data *data);
 void	move_pa(t_data *data);
 void	move_ra(t_data *data);
-void	move_rra(t_data * data);
+void	move_rra(t_data *data);
 
 /*MOVES B*/
 void	move_sb(t_data *data);
 void	move_pb(t_data *data);
 void	move_rb(t_data *data);
-void	move_rrb(t_data * data);
+void	move_rrb(t_data *data);
 
 /*SORT 2*/
 void	sort_2(t_data *data);
@@ -94,11 +93,12 @@ void	rotate_to_short(t_data *data);
 int		get_index(t_value *node, int ind);
 void	rater(t_data *data);
 void	get_relative_shorts(t_data *data, int sl1, int sl2, int sl3);
+void	optimizer_helper(t_data *data);
 void	optimizer(t_data *data);
 
 /*UTILS 3*/
-void	relative_slicer(t_data *data);
 void	relative_slicer_helper(t_value *node);
+void	relative_slicer(t_data *data);
 void	relative_slicer_s5(t_data *data);
 
 /*LISTS*/

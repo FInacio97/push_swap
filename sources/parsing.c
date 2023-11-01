@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:14:16 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/29 08:22:48 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:50:22 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	min_finder(t_data *data)
 			min = current;
 		current = current->next;
 	}
-	
 	min->index = 0;
 	min->slice = min->index / data->rate;
 	return (min->val);
