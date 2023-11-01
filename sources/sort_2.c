@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:37:56 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/31 12:38:09 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 09:10:47 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	sort_3(t_data *data)
 void	sort_4_helper(t_data *data, int *swap_check)
 {
 	move_sa(data);
-	printf("\naqui\n");
 	if (*swap_check-- == 1)
 		move_sb(data);
 }
@@ -102,6 +101,5 @@ void	sort_5(t_data *data)
 	if (order_check(data) != 0)
 	{
 		move_ra(data);
-		ft_printf("aqui\n");
 	}
 }

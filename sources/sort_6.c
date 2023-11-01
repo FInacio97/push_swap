@@ -6,13 +6,13 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:33:40 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/31 11:09:35 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:10:17 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_to_10_helper(t_data *data)
+void	sort_to_9_helper(t_data *data)
 {
 while (data->s_b_nbr)
 	{
@@ -23,7 +23,7 @@ while (data->s_b_nbr)
 	}
 }
 
-void	sort_to_10(t_data *data)
+void	sort_to_9(t_data *data)
 {
 	int	i;
 	
@@ -37,14 +37,13 @@ void	sort_to_10(t_data *data)
 		rotate_to_short(data);
 		i++;
 	}
-	ft_print_both_lists(data);
 	if (data->s_a_nbr == 5)
 		sort_5(data);
 	else if (data->s_a_nbr == 4 && data->s_b_head->val < data->s_b_head->next->val)
 		sort_4(data, 1);
 	else
 		sort_4(data, 0);
-	sort_to_10_helper(data);
+	sort_to_9_helper(data);
 }
 
 

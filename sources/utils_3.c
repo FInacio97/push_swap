@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:35:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/31 19:52:32 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 09:42:20 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	move_to_list(t_data *data, char *move, char *list)
 	temp = data->m_l_tail;
 	data->m_l_tail = new_moves_list(move, list);
 	data->moves_nbr++;
-	ft_printf("moves: %d\n", data->moves_nbr);
 	if (data->moves_flag == 0)
 	{
 		data->moves_flag = 1;

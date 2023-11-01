@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:24:38 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/30 15:59:30 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 09:42:58 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ void	ft_print_both_lists(t_data *data)
 
 void	to_exit(t_data *data, char *s)
 {
-	ft_printf("%s\n", s);
+	if (*s)
+		ft_printf("%s\n", s);
 	if (data->s_a_head)
 		list_deleter(data->s_a_head);
 	if (data->s_b_head)

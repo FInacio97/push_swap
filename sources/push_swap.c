@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:20:00 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/10/31 19:54:16 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/01 11:09:58 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,20 @@ int main(int ac, char **av)
 			sort_4(&data, 0);
 		else if (ac == 6)
 			sort_5(&data);
-		// else if (ac == 7)
-		// 	sort_6(&data);
-		// else if (ac == 8)
-		// 	sort_7(&data);
 		else if (ac <= 11)
-			sort_to_10(&data);
+			sort_to_9(&data);
 
-		ft_printf("\n\n===SORTED===\n");
+		// ft_printf("\n\n===SORTED===\n");
 
-		print_list(data.s_a_head);
+		// print_list(data.s_a_head);
 		print_moves(data.m_l_head);
-		ft_printf("Moves: %d\n", data.moves_nbr);
+		// ft_printf("Moves: %d\n", data.moves_nbr);
 		list_moves_deleter(data.m_l_head);
-		if (order_check(&data) == 0)
-			ft_printf("OK\n");
-		else
-			ft_printf("||ERROR||\nWrong order!!\n");
+		// if (order_check(&data) == 0)
+		// 	ft_printf("OK\n");
+		// else
+		// 	ft_printf("||ERROR||\nWrong order!!\n");
 
-		to_exit(&data, "Program terminated with success!\n");
+		to_exit(&data, "");
 	}
 }
