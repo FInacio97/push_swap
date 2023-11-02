@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:37:56 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 10:07:38 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 22:08:47 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sort_4(t_data *data, int swap_check)
 		sort_4_helper(data, &swap_check);
 	
 	//the following move regards the sort 5 algorythm (just in case the median index (of 5) is in the stack b)
-	if (data->s_b_nbr == 1 && data->s_b_head->val > data->s_a_tail->val
+	if (data->s_b_nbr && data->s_b_head->val > data->s_a_tail->val
 		&& data->s_b_head->val < data->s_a_head->val)
 		{
 			move_pa(data);
@@ -91,7 +91,7 @@ void	sort_5(t_data *data)
 	}
 	move_pb(data);
 	sort_4(data, 0);
-	if (data->s_b_nbr > 0 && data->s_b_head->slice_rel != 2)
+	if (data->s_b_nbr > 0 && data->s_b_head->slice_rel != 2 && data->s_a_nbr == 4)
 		move_pa(data);
 	if (order_check(data) != 0)
 	{

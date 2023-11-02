@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 19:42:57 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:31:41 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_data
 	int		s_b_nbr;
 	int		short_head;
 	int		short_tail;
+	int		top_head;
+	int		top_tail;
 	int		rate;
 	int		moves_flag;
 	int		moves_nbr;
@@ -116,6 +118,7 @@ void	optimizer(t_data *data);
 void	relative_slicer_helper(t_value *node);
 void	relative_slicer(t_data *data);
 void	relative_slicer_s5(t_data *data);
+void	get_tops_index(t_data *data);
 
 /*LISTS*/
 t_value	*new_list(int val);

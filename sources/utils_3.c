@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:35:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 12:17:03 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:31:49 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,34 @@ void	relative_slicer_s5(t_data *data)
 		}
 		min->slice_rel = rel_index;
 		rel_index++;
+	}
+}
+
+void	get_tops_index(t_data *data)
+{
+	int		i;
+	t_value	*current;
+
+	i = -1;
+	current = data->s_b_head;
+	while (current && ++i >= 0)
+	{
+		if (current->index == data->ind_list->i)
+		{
+			data->top_head = i;
+			break ;
+		}
+		current = current->next;
+	}
+	i = 0;
+	current = data->s_b_tail;
+	while (current && ++i >=0)
+	{
+		if (current->index == data->ind_list->i)
+		{
+			data->top_tail = i;
+			break ;
+		}
+		current = current->prev;
 	}
 }
