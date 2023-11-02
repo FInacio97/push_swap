@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:35:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 21:31:49 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 22:32:36 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,19 @@ void	get_tops_index(t_data *data)
 		}
 		current = current->prev;
 	}
+}
+
+void	rotate_to_top(t_data *data)
+{
+	if (data->top_head < data->top_tail)
+	{
+		while (data->top_head--)
+			move_rb(data);
+	}
+	else
+	{
+		while (data->top_tail--)
+			move_rrb(data);
+	}
+	move_pa(data);
 }

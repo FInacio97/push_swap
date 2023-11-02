@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:58:18 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 21:56:43 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 22:31:25 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,22 @@ void	phase_1(t_data *data)
 
 void	phase_2(t_data *data)
 {
-	get_tops_index(data);
 	index_list(data);
-	// print_ind_list(data);
+	// ft_printf("aqui\n");
+	// ft_printf("top head: %d\ntop tail: %d\n", data->top_head, data->top_tail);
 	// ft_print_both_lists(data);
+	while(data->s_b_nbr)
+	{
+		get_tops_index(data);
+		rotate_to_top(data);
+		delete_ind_node(data, data->ind_list);
+	}
+	// print_ind_list(data);
 	// ft_printf("top head: %d\ntop tail: %d\n", data->top_head, data->top_tail);
 }
 
 void	sort_10(t_data *data)
 {
-	// ft_printf("aqui\n");
 	phase_1(data);
 	sort_5(data);
 	phase_2(data);
