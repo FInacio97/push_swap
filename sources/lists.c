@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:31:07 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 12:05:16 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 20:09:58 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	print_list(t_value *head)
 
 		// ft_printf("(%d|%d)	", head->val, head->index);
 
-		ft_printf("%d|%d	", head->val, head->slice_rel);
+		ft_printf("%d|%d	", head->val, head->slice);
 		head = head->next;
 		i++;
 	}

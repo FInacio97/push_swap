@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:20:00 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 12:49:31 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 20:04:32 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int main(int ac, char **av)
 			sort_5(&data);
 		else if (ac <= 11)
 			sort_to_9(&data);
+		else
+			sort_10(&data);
 
 		// ft_printf("\n\n===SORTED===\n");
 

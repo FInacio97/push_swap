@@ -6,7 +6,8 @@ LIBFT = $(LIBFT_PATH)libft.a
 SRC = ./sources/push_swap.c	./sources/parsing.c	./sources/utils.c\
 			./sources/moves_a.c	./sources/moves_b.c	./sources/utils_2.c\
 			./sources/sort_2.c	./sources/utils_3.c	./sources/sort_6.c\
-			./sources/lists.c	./sources/lists_2.c
+			./sources/lists.c	./sources/lists_2.c	./sources/sort_10_up.c\
+			./sources/lists_3.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 12:43:04 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:42:57 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct s_moves
 	struct s_moves	*prev;
 }				t_moves;
 
+typedef struct s_index
+{
+	int				i;
+	struct s_index *next;
+}				t_index;
+
+
 typedef struct s_data
 {
 	t_value	*s_a_head;
@@ -41,6 +48,8 @@ typedef struct s_data
 	t_value	*s_b_tail;
 	t_moves	*m_l_head;
 	t_moves	*m_l_tail;
+	t_index *ind_list;
+
 	int		s_a_nbr;
 	int		s_b_nbr;
 	int		short_head;
@@ -48,6 +57,7 @@ typedef struct s_data
 	int		rate;
 	int		moves_flag;
 	int		moves_nbr;
+	int		remainder;
 }				t_data;
 
 /*In the end, check for unused/useless/testing
@@ -57,6 +67,7 @@ typedef struct s_data
 int		min_finder(t_data *data);
 void	indexer(t_data *data, int low_n, int i);
 void	doubles_checker(t_data *data);
+void	slice_remover(t_data *data);
 void	ft_parsing(char **av, t_data *data);
 
 /*MOVES A*/
@@ -81,6 +92,11 @@ void	sort_5(t_data *data);
 /*SORT 6*/
 void	sort_to_9_helper(t_data *data);
 void	sort_to_9(t_data *data);
+
+/*SORT 10 UP*/
+void	phase_1(t_data *data);
+void	phase_2(t_data *data);
+void	sort_10(t_data *data);
 
 /*UTILS*/
 void	pars_checker(t_data *data, char *str);
@@ -115,5 +131,13 @@ void	moves_node_deleter(t_moves *node);
 void	list_moves_deleter(t_moves *node);
 void	print_moves(t_moves *head);
 void	print_moves_reverse(t_moves *head);// 	ONLY FOR TESTING
+
+/*LISTS 3*/
+t_index	*new_ind_list(int index);
+void	add_ind_list(t_data *data, t_index *node);
+void	print_ind_list(t_data *data);
+void	delete_ind_list(t_index *node);
+void	delete_ind_node(t_data *data, t_index *node);
+void	index_list(t_data *data);
 
 #endif
