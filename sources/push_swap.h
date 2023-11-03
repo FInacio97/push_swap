@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 22:20:55 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/03 11:38:51 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,10 @@ void	relative_slicer(t_data *data);
 void	relative_slicer_s5(t_data *data);
 void	get_tops_index(t_data *data);
 void	rotate_to_top(t_data *data);
+
+/*UTILS 4*/
+void	get_shorts_index(t_data *data, int ind1, int ind2);
+
 
 /*LISTS*/
 t_value	*new_list(int val);
