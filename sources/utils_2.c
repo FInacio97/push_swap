@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:50:57 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/03 12:34:22 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:29:09 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rater(t_data *data)//	Defines how many elements make a slice
 	else if (data->s_a_nbr >= 10 && data->s_a_nbr <= 100)
 		data->rate = data->s_a_nbr / 7;
 	else if (data->s_a_nbr > 100)
-		data->rate = data->s_a_nbr / 18;
+		data->rate = data->s_a_nbr / 15;
 	else
 		data->rate = 1;
 }

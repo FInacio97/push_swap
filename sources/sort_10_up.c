@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:58:18 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/03 12:06:48 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:08:27 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ void	phase_1(t_data *data)
 
 void	phase_2(t_data *data)
 {
-				/*THE CAVEMAN 2.0*/
-	/*Compares the distances between the two largest elements*/
+				/*THE CAVEMAN 3.0*/
+	/*Compares the distances between the three largest elements*/
 	int j;
 
 	j = 0;
@@ -101,15 +101,31 @@ void	phase_2(t_data *data)
 	while (data->s_b_nbr)
 	{
 		// printf("%d | %d\n", data->ind_list->i, data->ind_list->next->i);
-		get_shorts_index(data, data->ind_list->i, data->ind_list->i - 1);
+		get_shorts_index(data, data->ind_list->i, data->ind_list->i - 1, data->ind_list->i - 2);
 		rotate_to_top(data);
 		if (data->s_b_nbr == 0)
 		{
 			delete_ind_node(data, data->ind_list);
 			break ;
 		}
-		get_shorts_index(data, data->ind_list->i, data->ind_list->i - 1);
+		if (data->s_a_head->index == (data->ind_list->i - 2) && data->s_b_nbr >= 2)
+			move_ra(data);
+		get_shorts_index(data, data->ind_list->i, data->ind_list->i - 1, data->ind_list->i - 2);
 		rotate_to_top(data);
+		if (data->s_b_nbr == 0)
+		{
+			delete_ind_node(data, data->ind_list);
+			break ;
+		}
+		if (data->s_b_nbr >= 1)
+			phase_2_helper(data);
+		get_shorts_index(data, data->ind_list->i, data->ind_list->i - 1, data->ind_list->i - 2);
+		rotate_to_top(data);
+		if (data->s_a_head->val > data->s_a_head->next->val)
+			move_sa(data);
+		if (data->s_a_tail->index == data->ind_list->i - 2)
+			move_rra(data);		
+		delete_ind_node(data, data->ind_list);
 		delete_ind_node(data, data->ind_list);
 		delete_ind_node(data, data->ind_list);
 		if (data->s_a_head->val > data->s_a_head->next->val)
@@ -123,4 +139,6 @@ void	sort_10(t_data *data)
 	phase_1(data);
 	sort_5(data);
 	phase_2(data);
+	if (data->s_a_head->val > data->s_a_head->next->val)
+			move_sa(data);
 }
