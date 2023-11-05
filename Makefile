@@ -1,7 +1,13 @@
 NAME = push_swap
+BONUS_NAME = checker
 
 LIBFT_PATH = ./libft/
 LIBFT = $(LIBFT_PATH)libft.a
+
+CFLAGS = -Wall -Werror -Wextra
+OTHERFLAGS = -L$(LIBFT_PATH) -lft -o $(NAME)
+OTHERFLAGS_BONUS = -L$(LIBFT_PATH) -lft -o $(BONUS_NAME)
+CC = cc
 
 SRC = ./sources/push_swap.c	./sources/parsing.c	./sources/utils.c\
 			./sources/moves_a.c	./sources/moves_b.c	./sources/utils_2.c\
@@ -11,10 +17,13 @@ SRC = ./sources/push_swap.c	./sources/parsing.c	./sources/utils.c\
 
 OBJS = $(SRC:.c=.o)
 
+#=====||BONUS||========
 
-CFLAGS = -Wall -Werror -Wextra
-OTHERFLAGS = -L$(LIBFT_PATH) -lft -o $(NAME)
-CC = cc
+BONUS_SRC = ./bonus/checker.c	./bonus/lists.c	./bonus/utils.c\
+				./bonus/parsing.c	./bonus/moves_checker.c	./bonus/moves_a.c\
+				./bonus/moves_b.c	./bonus/moves_double.c
+
+BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
 #=====||COLOURS||======
 
@@ -27,12 +36,17 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 		@make -sC $(LIBFT_PATH)
 
+bonus:$(BONUS_NAME)
+
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
+				$(CC) $(CFLAGS) $(BONUS_OBJS) $(OTHERFLAGS_BONUS)
+
 clean:
 		@make -sC $(LIBFT_PATH) clean
-		rm -f $(OBJS)
+		rm -f $(OBJS) $(BONUS_OBJS)
 fclean:
 		@make -sC $(LIBFT_PATH) fclean
-		rm -f $(NAME)
+		rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
