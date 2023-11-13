@@ -6,11 +6,17 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 09:54:41 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/05 11:04:24 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:28:35 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	move_sort_aux(t_data *data, char *move)
+{
+	ft_printf("%s\n", move);
+	to_exit_c(data, "||ERROR||\nInvalid move!");
+}
 
 void	move_sort(t_data *data, char *move)
 {
@@ -33,22 +39,17 @@ void	move_sort(t_data *data, char *move)
 	else if (ft_strncmp(move, "ss\n", 5) == 0)
 		move_ss_c(data);
 	else if (ft_strncmp(move, "rr\n", 5) == 0)
-		move_ss_c(data);
+		move_rr_c(data);
 	else if (ft_strncmp(move, "rrr\n", 5) == 0)
-		move_ss_c(data);
+		move_rrr_c(data);
 	else
-	{
-		ft_printf("%s\n", move);
-		to_exit_c(data, "||ERROR||\nInvalid move!");
-	}
+		move_sort_aux(data, move);
 }
 
 void	moves_checker(t_data *data)
 {
 	char	*move;
-	int		move_nbr;
 
-	move_nbr = 0;
 	while (1)
 	{
 		move = get_next_line(0);
@@ -57,7 +58,5 @@ void	moves_checker(t_data *data)
 		else
 			move_sort(data, move);
 		free (move);
-		move_nbr++;
 	}
-	ft_printf("Number of moves: %d\n", move_nbr);
 }

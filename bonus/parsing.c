@@ -6,12 +6,11 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:59:05 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/05 09:46:38 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:23:51 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
 
 void	pars_checker_c(t_data *data, char *str)
 {
@@ -43,8 +42,8 @@ void	pars_checker_c(t_data *data, char *str)
 
 void	double_checker_c(t_data *data)
 {
-	t_value *current;
-	t_value *comp;
+	t_value	*current;
+	t_value	*comp;
 
 	current = data->s_a_head;
 	while (current->next)
@@ -58,7 +57,6 @@ void	double_checker_c(t_data *data)
 		}
 		current = current->next;
 	}
-	
 }
 
 void	ft_parsing_c(char **av, t_data *data)

@@ -19,7 +19,7 @@ OBJS = $(SRC:.c=.o)
 
 #=====||BONUS||========
 
-BONUS_SRC = ./bonus/checker.c	./bonus/lists.c	./bonus/utils.c\
+BONUS_SRC = ./bonus/checker.c	./bonus/lists.c	./bonus/utils_c.c\
 				./bonus/parsing.c	./bonus/moves_checker.c	./bonus/moves_a.c\
 				./bonus/moves_b.c	./bonus/moves_double.c
 
@@ -50,4 +50,4 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

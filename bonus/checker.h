@@ -6,15 +6,15 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 22:13:59 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/05 10:58:17 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:30:30 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-#include "../libft/libft.h"
-#include "../sources/push_swap.h"
+# include "../libft/libft.h"
+# include "../sources/push_swap.h"
 
 /*PARSING*/
 void	pars_checker_c(t_data *data, char *str);
@@ -47,7 +47,7 @@ void	order_check_c(t_data *data);
 void	to_exit_c(t_data *data, char *s);
 
 /*LISTS*/
-t_value *new_list_c(int val);
+t_value	*new_list_c(int val);
 void	list_deleter_c(t_value *node);
 void	add_list_c(t_data *data, int val);
 void	print_list_c(t_value *head);

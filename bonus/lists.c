@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:59:23 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/05 09:34:19 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:31:37 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,6 @@ void	print_list_c(t_value *head)
 	ft_printf("List:	");
 	while (head)
 	{
-		// if (head->prev == NULL && head->next != NULL)
-		// 	ft_printf("(NULL|%d|%d)	", head->val, head->next->val);
-		// else if (head->prev != NULL && head->next == NULL)
-		// 	ft_printf("(%d|%d|NULL)	", head->prev->val, head->val);
-		// else if (head->prev == NULL && head->next == NULL)
-		// 	ft_printf("(NULL|%d|NULL)	", head->val);
-		// else
-		// 	ft_printf("(%d|%d|%d)	", head->prev->val, head->val, head->next->val);
-
-
-		// ft_printf("(%d|%d)	", head->val, head->index);
-
 		ft_printf("%d|%d	", head->val, head->index);
 		head = head->next;
 		i++;
