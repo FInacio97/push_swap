@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/04 12:49:29 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:57:54 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ typedef struct s_moves
 typedef struct s_index
 {
 	int				i;
-	struct s_index *next;
+	struct s_index	*next;
 }				t_index;
-
 
 typedef struct s_data
 {
@@ -48,7 +47,7 @@ typedef struct s_data
 	t_value	*s_b_tail;
 	t_moves	*m_l_head;
 	t_moves	*m_l_tail;
-	t_index *ind_list;
+	t_index	*ind_list;
 
 	int		s_a_nbr;
 	int		s_b_nbr;
@@ -74,12 +73,14 @@ void	ft_parsing(char **av, t_data *data);
 
 /*MOVES A*/
 void	move_sa(t_data *data);
+void	move_pa_aux(t_data *data);
 void	move_pa(t_data *data);
 void	move_ra(t_data *data);
 void	move_rra(t_data *data);
 
 /*MOVES B*/
 void	move_sb(t_data *data);
+void	move_pb_aux(t_data *data);
 void	move_pb(t_data *data);
 void	move_rb(t_data *data);
 void	move_rrb(t_data *data);
@@ -96,7 +97,9 @@ void	sort_to_9_helper(t_data *data);
 void	sort_to_9(t_data *data);
 
 /*SORT 10 UP*/
+void	check_next_slice(t_data *data, int *i);
 void	phase_1(t_data *data);
+void	phase_2_aux(t_data *data);
 void	phase_2(t_data *data);
 void	sort_10(t_data *data);
 
@@ -125,13 +128,10 @@ void	rotate_to_top(t_data *data);
 void	get_shorts_index(t_data *data, int ind1, int ind2, int ind3);
 void	phase_2_helper(t_data *s_data);
 
-
 /*LISTS*/
 t_value	*new_list(int val);
 void	list_deleter(t_value *node);
 void	add_list(t_data *data, int val);
-void	print_list(t_value *head);//	to delete
-void	ft_print_both_lists(t_data *data);//	to delete
 t_moves	*new_moves_list(char *move, char *list);
 
 /*LISTS 2*/
@@ -139,7 +139,7 @@ void	move_to_list(t_data *data, char *move, char *list);
 void	moves_node_deleter(t_moves *node);
 void	list_moves_deleter(t_moves *node);
 void	print_moves(t_moves *head);
-void	print_moves_reverse(t_moves *head);// 	ONLY FOR TESTING
+void	index_list(t_data *data);
 
 /*LISTS 3*/
 t_index	*new_ind_list(int index);
@@ -147,6 +147,10 @@ void	add_ind_list(t_data *data, t_index *node);
 void	print_ind_list(t_data *data);
 void	delete_ind_list(t_index *node);
 void	delete_ind_node(t_data *data, t_index *node);
-void	index_list(t_data *data);
+
+/*TEST*/
+void	print_list(t_value *head);
+void	ft_print_both_lists(t_data *data);
+void	print_moves_reverse(t_moves *head);
 
 #endif

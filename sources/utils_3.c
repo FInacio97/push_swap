@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:35:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/03 11:24:10 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:05:32 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	get_tops_index(t_data *data)
 	}
 	i = 0;
 	current = data->s_b_tail;
-	while (current && ++i >=0)
+	while (current && ++i >= 0)
 	{
 		if (current->index == data->ind_list->i)
 		{

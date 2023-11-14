@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:14:16 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 20:11:36 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:35:35 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	doubles_checker(t_data *data)
 
 void	slice_remover(t_data *data)
 {
-	t_value *current;
+	t_value	*current;
 
 	current = data->s_a_head;
 	while (current)

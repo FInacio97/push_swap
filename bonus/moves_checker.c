@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 09:54:41 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/13 22:28:35 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:08:21 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	move_sort_aux(t_data *data, char *move)
 {
 	ft_printf("%s\n", move);
+	free (move);
 	to_exit_c(data, "||ERROR||\nInvalid move!");
 }
 

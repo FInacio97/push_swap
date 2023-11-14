@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:50:57 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/04 13:29:09 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:04:46 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_index(t_value *node, int ind)
 	return (-1);
 }
 
-void	rater(t_data *data)//	Defines how many elements make a slice
+void	rater(t_data *data)
 {
 	if (data->s_a_nbr == 4)
 		data->rate = 2;

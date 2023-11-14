@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:29:43 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 12:11:12 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:23:45 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,12 @@ void	print_moves(t_moves *head)
 	}
 }
 
-void	print_moves_reverse(t_moves *head)// 	ONLY FOR TESTING
+void	index_list(t_data *data)
 {
-	t_moves	*current;
+	int	i;
 
-	current = head;
-	printf("\nList Reversed\n");
-	if (current->next == NULL)
-		ft_printf("NULL\n");
-	while (current)
-	{
-		ft_printf("%s", current->move);
-		current = current->prev;
-	}
-	if (current == NULL)
-		ft_printf("NULL\n");
+	i = data->s_b_nbr - 1;
+	data->ind_list = new_ind_list(i);
+	while (--i >= 0)
+		add_ind_list(data, new_ind_list(i));
 }

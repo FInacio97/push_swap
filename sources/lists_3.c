@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:16:37 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/02 18:00:36 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:20:28 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,4 @@ void	delete_ind_node(t_data *data, t_index *node)
 		current->next = node->next;
 	}
 	free (node);
-}
-
-void	index_list(t_data *data)
-{
-	int	i;
-
-	i = data->s_b_nbr - 1;
-	data->ind_list = new_ind_list(i);
-	while (--i >= 0)
-		add_ind_list(data, new_ind_list(i));
 }

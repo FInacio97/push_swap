@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:24:38 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/01 12:27:57 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:07:54 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ void	pars_checker(t_data *data, char *str)
 
 void	to_exit(t_data *data, char *s)
 {
-	if (*s)
+	if (s)
 		ft_printf("%s\n", s);
 	if (data->s_a_head)
 		list_deleter(data->s_a_head);
 	if (data->s_b_head)
 		list_deleter(data->s_b_head);
+	if (data->ind_list)
+		delete_ind_list(data->ind_list);
 	exit (0);
 }
 
@@ -72,7 +74,7 @@ void	get_shorts(t_data *data, int sl1, int sl2)
 {
 	t_value	*cur;
 
-	data->short_head= 0;
+	data->short_head = 0;
 	cur = data->s_a_head;
 	while (cur)
 	{
