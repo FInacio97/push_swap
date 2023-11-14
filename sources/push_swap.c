@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:20:00 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/14 22:19:12 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:22:48 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ int	main(int ac, char **av)
 		list_moves_deleter(data.m_l_head);
 		to_exit(&data, NULL);
 	}
-		ft_printf("||ERROR||\nNot enough arguments\n");
+	ft_printf("||ERROR||\nNot enough arguments\n");
 }
