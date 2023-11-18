@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 22:13:59 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/14 20:29:43 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:17:21 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../sources/push_swap.h"
 
 /*PARSING*/
+void	int_overflow_c(char *s, int sign, t_data *data);
 void	pars_checker_c(t_data *data, char *str);
 void	double_checker_c(t_data *data);
 void	ft_parsing_c(char **av, t_data *data);

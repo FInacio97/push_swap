@@ -6,11 +6,26 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:59:05 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/13 22:23:51 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:19:53 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	int_overflow_c(char *s, int sign, t_data *data)
+{
+	if (sign == -1)
+	{
+		if (ft_strncmp(s, "2147483648", 12) <= 0 && ft_strlen(s) == 10)
+			return ;
+	}
+	else
+	{
+		if (ft_strncmp(s, "2147483647", 12) <= 0 && ft_strlen(s) == 10)
+			return ;
+	}
+	to_exit_c(data, "||ERROR||\nArgument out of bounds!\n");
+}
 
 void	pars_checker_c(t_data *data, char *str)
 {
@@ -24,20 +39,14 @@ void	pars_checker_c(t_data *data, char *str)
 		sign = -1;
 		s++;
 	}
+	if (!s[0])
+		to_exit_c(data, "error");
 	while (*s == '0')
 		s++;
 	if (str_finder(s, "0123456789") != (int)ft_strlen(s))
 		to_exit_c(data, "||ERROR||\nInvalid arguments!\n");
-	if (sign == -1)
-	{
-		if (ft_strncmp(s, "2147483648", 11) > 0 && (int)ft_strlen(s) >= 10)
-			to_exit_c(data, "||ERROR||\nArgument out of bounds!\n");
-	}
-	else
-	{
-		if (ft_strncmp(s, "2147483647", 11) > 0 && (int)ft_strlen(s) >= 10)
-			to_exit_c(data, "||ERROR||\nArgument out of bounds!\n");
-	}
+	if (ft_strlen(s) >= 10)
+		int_overflow_c(s, sign, data);
 }
 
 void	double_checker_c(t_data *data)

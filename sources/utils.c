@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:24:38 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/14 22:07:54 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:11:59 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,20 @@ void	pars_checker(t_data *data, char *str)
 
 	s = str;
 	sign = 0;
-	if (s[0] == '-')
+	if (s[0] == '-' || s[0] == '+')
 	{
-		sign = -1;
+		if (s[0] == '-')
+			sign = -1;
 		s++;
 	}
+	if (!s[0])
+		to_exit(data, "error");
 	while (*s == '0')
 		s++;
 	if (str_finder(s, "0123456789") != (int)ft_strlen(s))
 		to_exit(data, "||ERROR||\nInvalid arguments!\n");
-	if (sign == -1)
-	{
-		if (ft_strncmp(s, "2147483648", 11) > 0 && (int)ft_strlen(s) >= 10)
-			to_exit(data, "||ERROR||\nArgument out of bounds!\n");
-	}
-	else
-	{
-		if (ft_strncmp(s, "2147483647", 11) > 0 && (int)ft_strlen(s) >= 10)
-			to_exit(data, "||ERROR||\nArgument out of bounds!\n");
-	}
+	if (ft_strlen(s) >= 10)
+		int_overflow(data, s, sign);
 }
 
 void	to_exit(t_data *data, char *s)

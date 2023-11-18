@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:50 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/14 21:57:54 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:10:49 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void	rotate_to_top(t_data *data);
 /*UTILS 4*/
 void	get_shorts_index(t_data *data, int ind1, int ind2, int ind3);
 void	phase_2_helper(t_data *s_data);
+void	int_overflow(t_data *data, char *s, int sign);
 
 /*LISTS*/
 t_value	*new_list(int val);

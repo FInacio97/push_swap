@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 11:16:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/14 22:07:28 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:11:07 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,19 @@ void	phase_2_helper(t_data *data)
 	else if (data->s_a_tail->val != (data->ind_list->i - 2)
 		&& data->s_a_head->val > data->s_a_head->next->val)
 		move_sa(data);
+}
+
+void	int_overflow(t_data *data, char *s, int sign)
+{
+	if (sign == -1)
+	{
+		if (ft_strncmp(s, "2147483648", 12) <= 0 && ft_strlen(s) == 10)
+			return ;
+	}
+	else
+	{
+		if (ft_strncmp(s, "2147483647", 12) <= 0 && ft_strlen(s) == 10)
+			return ;
+	}
+	to_exit(data, "||ERROR||\nArgument out of bounds!\n");
 }
