@@ -44,7 +44,7 @@ $(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 clean:
 		@make -sC $(LIBFT_PATH) clean
 		rm -f $(OBJS) $(BONUS_OBJS)
-fclean:
+fclean: clean
 		@make -sC $(LIBFT_PATH) fclean
 		rm -f $(NAME) $(BONUS_NAME)
 

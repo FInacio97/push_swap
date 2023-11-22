@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:20:00 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/11/18 19:02:44 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:12:04 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	if (ac > 2)
+	if (ac > 1)
 	{
 		initializer(&data);
 		ft_parsing(av, &data);
